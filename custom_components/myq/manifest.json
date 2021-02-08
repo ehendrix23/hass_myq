@@ -1,0 +1,10 @@
+{
+  "domain": "myq",
+  "name": "myQ",
+  "documentation": "https://github.com/ehendrix23/hass_myq",
+  "issue_tracker": "https://github.com/ehendrix23/hass_myq/issues",
+  "dependencies": [],
+  "config_flow": true,
+  "codeowners": ["@ehendrix23"],
+  "requirements": []
+}

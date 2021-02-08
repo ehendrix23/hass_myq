@@ -1,0 +1,10 @@
+{
+  "_template": "gh:oncleben31/cookiecutter-homeassistant-custom-component",
+  "class_name_prefix": "Myq",
+  "domain_name": "myq",
+  "friendly_name": "myQ",
+  "github_user": "ehendrix23",
+  "project_name": "hass_myq",
+  "test_suite": "yes",
+  "version": "0.0.1"
+}
