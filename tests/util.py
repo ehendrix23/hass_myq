@@ -3,11 +3,10 @@ import json
 import logging
 from unittest.mock import patch
 
-from pymyq.const import ACCOUNTS_ENDPOINT, DEVICES_ENDPOINT
-
 from homeassistant.components.myq.const import DOMAIN
 from homeassistant.const import CONF_PASSWORD, CONF_USERNAME
 from homeassistant.core import HomeAssistant
+from pymyq.const import ACCOUNTS_ENDPOINT, DEVICES_ENDPOINT
 
 from tests.common import MockConfigEntry, load_fixture
 

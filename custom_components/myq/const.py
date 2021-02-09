@@ -1,5 +1,4 @@
 """The MyQ integration."""
-
 from homeassistant.const import STATE_CLOSED, STATE_CLOSING, STATE_OPEN, STATE_OPENING
 from pymyq.garagedoor import (
     STATE_CLOSED as MYQ_COVER_STATE_CLOSED,

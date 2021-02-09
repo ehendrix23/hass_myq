@@ -1,5 +1,4 @@
 """The scene tests for the myq platform."""
-
 from homeassistant.const import STATE_CLOSED
 
 from .util import async_init_integration
