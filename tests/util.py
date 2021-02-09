@@ -17,6 +17,14 @@ from custom_components.myq.const import DOMAIN
 _LOGGER = logging.getLogger(__name__)
 
 
+async def async_config_entries_flow(hass, *args, **kwargs):
+    with patch("homeassistant.loader.Integration.resolve_from_root", return_value=None):
+        result = await hass.config_entries.flow.async_init(*args, **kwargs)
+        # DOMAIN, context={"source": config_entries.SOURCE_USER}
+        # )
+    return result
+
+
 async def async_init_integration(
     hass: HomeAssistant,
     skip_setup: bool = False,
@@ -45,10 +53,14 @@ async def async_init_integration(
         _LOGGER.debug("Something else")
         return None, {}
 
+    # Added patch to resolve from root as currently HASS picks up the myq core component and not
+    # the custom component. This can be removed once myq is removed from the core.
     with patch(
         "pymyq.api.API._oauth_authenticate",
         side_effect=_handle_mock_api_oauth_authenticate,
-    ), patch("pymyq.api.API.request", side_effect=_handle_mock_api_request):
+    ), patch("pymyq.api.API.request", side_effect=_handle_mock_api_request), patch(
+        "homeassistant.loader.Integration.resolve_from_root", return_value=None
+    ):
         entry = MockConfigEntry(
             domain=DOMAIN, data={CONF_USERNAME: "mock", CONF_PASSWORD: "mock"}
         )

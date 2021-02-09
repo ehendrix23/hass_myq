@@ -11,7 +11,7 @@ __version__ = "0.0.1"
 PROJECT_URL = "https://github.com/ehendrix23/hass_myq"
 ISSUE_URL = "{}issues".format(PROJECT_URL)
 
-DOMAIN = "hacs_myq"
+DOMAIN = "myq"
 PLATFORMS = ["cover", "binary_sensor"]
 
 MYQ_TO_HASS = {
