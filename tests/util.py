@@ -3,12 +3,12 @@ import json
 import logging
 from unittest.mock import patch
 
-from homeassistant.components.myq.const import DOMAIN
 from homeassistant.const import CONF_PASSWORD, CONF_USERNAME
 from homeassistant.core import HomeAssistant
 from pymyq.const import ACCOUNTS_ENDPOINT, DEVICES_ENDPOINT
+from pytest_homeassistant_custom_component.common import MockConfigEntry, load_fixture
 
-from tests.common import MockConfigEntry, load_fixture
+from custom_components.myq.const import DOMAIN
 
 _LOGGER = logging.getLogger(__name__)
 

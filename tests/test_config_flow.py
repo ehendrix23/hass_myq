@@ -2,11 +2,11 @@
 from unittest.mock import patch
 
 from homeassistant import config_entries, setup
-from homeassistant.components.myq.const import DOMAIN
 from homeassistant.const import CONF_PASSWORD, CONF_USERNAME
 from pymyq.errors import InvalidCredentialsError, MyQError
+from pytest_homeassistant_custom_component.common import MockConfigEntry
 
-from tests.common import MockConfigEntry
+from custom_components.myq.const import DOMAIN
 
 
 async def test_form_user(hass):
