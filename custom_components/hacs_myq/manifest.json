@@ -1,5 +1,5 @@
 {
-  "domain": "myq",
+  "domain": "hacs_myq",
   "name": "MyQ",
   "version": "0.0.1",
   "documentation": "https://github.com/ehendrix23/hass_myq",
