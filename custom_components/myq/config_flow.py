@@ -1,106 +1,90 @@
-"""Adds config flow for myQ."""
+"""Config flow for MyQ integration."""
+import logging
+
+import pymyq
+from pymyq.errors import InvalidCredentialsError, MyQError
 import voluptuous as vol
-from homeassistant import config_entries
-from homeassistant.core import callback
-from homeassistant.helpers.aiohttp_client import async_create_clientsession
 
-from .api import MyqApiClient
-from .const import CONF_PASSWORD
-from .const import CONF_USERNAME
-from .const import DOMAIN
-from .const import PLATFORMS
+from homeassistant import config_entries, core, exceptions
+from homeassistant.const import CONF_PASSWORD, CONF_USERNAME
+from homeassistant.helpers import aiohttp_client
+
+from .const import DOMAIN  # pylint:disable=unused-import
+
+_LOGGER = logging.getLogger(__name__)
+
+DATA_SCHEMA = vol.Schema(
+    {vol.Required(CONF_USERNAME): str, vol.Required(CONF_PASSWORD): str}
+)
 
 
-class MyqFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
-    """Config flow for myq."""
+async def validate_input(hass: core.HomeAssistant, data):
+    """Validate the user input allows us to connect.
+
+    Data has the keys from DATA_SCHEMA with values provided by the user.
+    """
+
+    websession = aiohttp_client.async_get_clientsession(hass)
+
+    try:
+        await pymyq.login(data[CONF_USERNAME], data[CONF_PASSWORD], websession)
+    except InvalidCredentialsError as err:
+        raise InvalidAuth from err
+    except MyQError as err:
+        raise CannotConnect from err
+
+    return {"title": data[CONF_USERNAME]}
+
+
+class ConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
+    """Handle a config flow for MyQ."""
 
     VERSION = 1
     CONNECTION_CLASS = config_entries.CONN_CLASS_CLOUD_POLL
 
-    def __init__(self):
-        """Initialize."""
-        self._errors = {}
-
     async def async_step_user(self, user_input=None):
-        """Handle a flow initialized by the user."""
-        self._errors = {}
-
-        # Uncomment the next 2 lines if only a single instance of the integration is allowed:
-        # if self._async_current_entries():
-        #     return self.async_abort(reason="single_instance_allowed")
-
+        """Handle the initial step."""
+        errors = {}
         if user_input is not None:
-            valid = await self._test_credentials(
-                user_input[CONF_USERNAME], user_input[CONF_PASSWORD]
-            )
-            if valid:
-                return self.async_create_entry(
-                    title=user_input[CONF_USERNAME], data=user_input
-                )
-            else:
-                self._errors["base"] = "auth"
+            try:
+                info = await validate_input(self.hass, user_input)
+            except CannotConnect:
+                errors["base"] = "cannot_connect"
+            except InvalidAuth:
+                errors["base"] = "invalid_auth"
+            except Exception:  # pylint: disable=broad-except
+                _LOGGER.exception("Unexpected exception")
+                errors["base"] = "unknown"
 
-            return await self._show_config_form(user_input)
+            if "base" not in errors:
+                await self.async_set_unique_id(user_input[CONF_USERNAME])
+                self._abort_if_unique_id_configured()
+                return self.async_create_entry(title=info["title"], data=user_input)
 
-        return await self._show_config_form(user_input)
-
-    @staticmethod
-    @callback
-    def async_get_options_flow(config_entry):
-        return MyqOptionsFlowHandler(config_entry)
-
-    async def _show_config_form(self, user_input):  # pylint: disable=unused-argument
-        """Show the configuration form to edit location data."""
         return self.async_show_form(
-            step_id="user",
-            data_schema=vol.Schema(
-                {vol.Required(CONF_USERNAME): str, vol.Required(CONF_PASSWORD): str}
-            ),
-            errors=self._errors,
+            step_id="user", data_schema=DATA_SCHEMA, errors=errors
         )
 
-    async def _test_credentials(self, username, password):
-        """Return true if credentials is valid."""
-        try:
-            session = async_create_clientsession(self.hass)
-            client = MyqApiClient(username, password, session)
-            await client.async_get_data()
-            return True
-        except Exception:  # pylint: disable=broad-except
-            pass
-        return False
-
-
-class MyqOptionsFlowHandler(config_entries.OptionsFlow):
-    """Config flow options handler for myq."""
-
-    def __init__(self, config_entry):
-        """Initialize HACS options flow."""
-        self.config_entry = config_entry
-        self.options = dict(config_entry.options)
-
-    async def async_step_init(self, user_input=None):  # pylint: disable=unused-argument
-        """Manage the options."""
+    async def async_step_homekit(self, homekit_info):
+        """Handle HomeKit discovery."""
+        if self._async_current_entries():
+            # We can see myq on the network to tell them to configure
+            # it, but since the device will not give up the account it is
+            # bound to and there can be multiple myq gateways on a single
+            # account, we avoid showing the device as discovered once
+            # they already have one configured as they can always
+            # add a new one via "+"
+            return self.async_abort(reason="already_configured")
+        properties = {
+            key.lower(): value for (key, value) in homekit_info["properties"].items()
+        }
+        await self.async_set_unique_id(properties["id"])
         return await self.async_step_user()
 
-    async def async_step_user(self, user_input=None):
-        """Handle a flow initialized by the user."""
-        if user_input is not None:
-            self.options.update(user_input)
-            return await self._update_options()
 
-        return self.async_show_form(
-            step_id="user",
-            data_schema=vol.Schema(
-                {
-                    vol.Required(x, default=self.options.get(x, True)): bool
-                    for x in sorted(PLATFORMS)
-                }
-            ),
-        )
+class CannotConnect(exceptions.HomeAssistantError):
+    """Error to indicate we cannot connect."""
 
-    async def _update_options(self):
-        """Update config entry options."""
-        return self.async_create_entry(
-            title=self.config_entry.data.get(CONF_USERNAME), data=self.options
-        )
+
+class InvalidAuth(exceptions.HomeAssistantError):
+    """Error to indicate there is invalid auth."""

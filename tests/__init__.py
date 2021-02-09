@@ -1,1 +1,1 @@
-"""Tests for myQ integration."""
+"""Tests for the MyQ integration."""
