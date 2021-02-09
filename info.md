@@ -16,7 +16,3 @@ The myq cover platform lets you control MyQ-Enabled garage doors through Home As
 ### Binary Sensor
 
 Your `MyQ` gateway will appear as a binary sensor that shows if the device is connected.
-
-### Cover
-
-Garage doors and gates linked to your `MyQ` account will appear as covers.
