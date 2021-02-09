@@ -1,11 +1,11 @@
 {
-    "config": {
-        "step": {
-            "user": {
-                "data": {
-                    "username": "Usu\u00e1rio"
-                }
-            }
+  "config": {
+    "step": {
+      "user": {
+        "data": {
+          "username": "Usu\u00e1rio"
         }
+      }
     }
+  }
 }

@@ -1,4 +1,5 @@
 # myQ
+
 ![GitHub all releases](https://img.shields.io/github/downloads/ehendrix23/hass_myq/total)
 ![GitHub release (latest by SemVer)](https://img.shields.io/github/downloads/ehendrix23/hass_myq/latest/total)
 
@@ -14,22 +15,23 @@ This is a custom component replacing the core MyQ integration in [Homeassistant]
 
 **This component will set up the following platforms.**
 
-| Platform        | Description                                                               |
-| --------------- | ------------------------------------------------------------------------- |
-| `binary_sensor` | Represents MyQ gateway.                                                   |
+| Platform        | Description                                                                                         |
+| --------------- | --------------------------------------------------------------------------------------------------- |
+| `binary_sensor` | Represents MyQ gateway.                                                                             |
 | `cover`         | For each garage door or gate discovered from MyQ. Shows current state and allows opening or closing |
 
-
 ## Installation with HACS
+
 This component is available through [HACS](https://hacs.xyz/). This is the easiest method to install, stay informed of new releases, and update.
 
-1. Within Home Assistant, open HACS (install HACS if not already installed, see [HACS Installation](https://hacs.xyz/docs/installation/prerequisites)) 
+1. Within Home Assistant, open HACS (install HACS if not already installed, see [HACS Installation](https://hacs.xyz/docs/installation/prerequisites))
 2. Go to the store and search for MyQ
 3. Install MyQ through HACS
 4. Go to Configuration -> Integrations page
 5. On the bottom right of the page click on the Orange + sign to add an integration
 6. Search for MyQ (if you don't see it, try refreshing your browser page to reload the cache)
 7. Enter your MyQ account credentials
+
 ## Manual Installation
 
 1. Using the tool of choice open the directory (folder) for your HA configuration (where you find `configuration.yaml`).
@@ -41,8 +43,6 @@ This component is available through [HACS](https://hacs.xyz/). This is the easie
 7. In the HA UI go to "Configuration" -> "Integrations" click "+" and search for "myQ"
 
 Using your HA configuration directory (folder) as a starting point you should now also have this:
-
-
 
 ## Configuration is done in the UI
 

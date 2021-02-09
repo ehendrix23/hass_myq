@@ -1,12 +1,12 @@
 {
-    "config": {
-        "step": {
-            "user": {
-                "data": {
-                    "password": "Adgangskode",
-                    "username": "Brugernavn"
-                }
-            }
+  "config": {
+    "step": {
+      "user": {
+        "data": {
+          "password": "Adgangskode",
+          "username": "Brugernavn"
         }
+      }
     }
+  }
 }

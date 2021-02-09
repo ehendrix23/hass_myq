@@ -1,4 +1,5 @@
 # myQ
+
 ![Validate](https://github.com/ehendrix23/hass_myq/workflows/Validate/badge.svg)
 [![hacs_badge](https://img.shields.io/badge/HACS-Default-orange.svg)](https://github.com/custom-components/hacs)
 ![GitHub all releases](https://img.shields.io/github/downloads/ehendrix23/hass_myq/total)
