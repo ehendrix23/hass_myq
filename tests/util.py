@@ -19,7 +19,7 @@ async def async_init_integration(
 ) -> MockConfigEntry:
     """Set up the myq integration in Home Assistant."""
 
-    devices_fixture = "myq/devices.json"
+    devices_fixture = "devices.json"
     devices_json = load_fixture(devices_fixture)
     devices_dict = json.loads(devices_json)
 
