@@ -1,5 +1,5 @@
 ![Validate](https://github.com/ehendrix23/hass_myq/workflows/Validate/badge.svg)
-[![hacs][hacsbadge]](hacs)
+[![hacs][hacsbadge]][hacs]
 ![GitHub all releases](https://img.shields.io/github/downloads/ehendrix23/hass_myq/total)
 ![GitHub release (latest by SemVer)](https://img.shields.io/github/downloads/ehendrix23/hass_myq/latest/total)
 
