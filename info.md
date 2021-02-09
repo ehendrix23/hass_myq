@@ -24,6 +24,8 @@ Your `MyQ` gateway will appear as a binary sensor that shows if the device is co
 
 Garage doors and gates linked to your `MyQ` account will appear as covers.
 
+{% if installed and version_installed != selected_tag %}
+
 ## Changes as compared to your installed version:
 
 ### Breaking Changes
@@ -57,3 +59,5 @@ Garage doors and gates linked to your `MyQ` account will appear as covers.
   {% endif %}
 
 ---
+
+{% endif %}
