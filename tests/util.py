@@ -9,7 +9,7 @@ from homeassistant.core import HomeAssistant
 from pymyq.const import ACCOUNTS_ENDPOINT, DEVICES_ENDPOINT
 from pytest_homeassistant_custom_component.common import MockConfigEntry
 
-from custom_components.hacs_myq.const import DOMAIN
+from custom_components.myq.const import DOMAIN
 
 # from pytest_homeassistant_custom_component.common import MockConfigEntry, load_fixture
 

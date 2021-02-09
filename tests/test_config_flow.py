@@ -6,7 +6,7 @@ from homeassistant.const import CONF_PASSWORD, CONF_USERNAME
 from pymyq.errors import InvalidCredentialsError, MyQError
 from pytest_homeassistant_custom_component.common import MockConfigEntry
 
-from custom_components.hacs_myq.const import DOMAIN
+from custom_components.myq.const import DOMAIN
 
 
 async def test_form_user(hass):
@@ -19,12 +19,12 @@ async def test_form_user(hass):
     assert result["errors"] == {}
 
     with patch(
-        "custom_components.hacs_myq.config_flow.pymyq.login",
+        "custom_components.myq.config_flow.pymyq.login",
         return_value=True,
     ), patch(
-        "custom_components.hacs_myq.async_setup", return_value=True
+        "custom_components.myq.async_setup", return_value=True
     ) as mock_setup, patch(
-        "custom_components.hacs_myq.async_setup_entry",
+        "custom_components.myq.async_setup_entry",
         return_value=True,
     ) as mock_setup_entry:
         result2 = await hass.config_entries.flow.async_configure(
@@ -50,7 +50,7 @@ async def test_form_invalid_auth(hass):
     )
 
     with patch(
-        "custom_components.hacs_myq.config_flow.pymyq.login",
+        "custom_components.myq.config_flow.pymyq.login",
         side_effect=InvalidCredentialsError,
     ):
         result2 = await hass.config_entries.flow.async_configure(
@@ -69,7 +69,7 @@ async def test_form_cannot_connect(hass):
     )
 
     with patch(
-        "custom_components.hacs_myq.config_flow.pymyq.login",
+        "custom_components.myq.config_flow.pymyq.login",
         side_effect=MyQError,
     ):
         result2 = await hass.config_entries.flow.async_configure(
