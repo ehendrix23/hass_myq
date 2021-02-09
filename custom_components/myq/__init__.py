@@ -3,15 +3,14 @@ import asyncio
 from datetime import timedelta
 import logging
 
-import pymyq
-from pymyq.errors import InvalidCredentialsError, MyQError
-
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import CONF_PASSWORD, CONF_USERNAME
 from homeassistant.core import HomeAssistant
 from homeassistant.exceptions import ConfigEntryNotReady
 from homeassistant.helpers import aiohttp_client
 from homeassistant.helpers.update_coordinator import DataUpdateCoordinator, UpdateFailed
+import pymyq
+from pymyq.errors import InvalidCredentialsError, MyQError
 
 from .const import DOMAIN, MYQ_COORDINATOR, MYQ_GATEWAY, PLATFORMS, UPDATE_INTERVAL
 

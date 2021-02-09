@@ -1,13 +1,12 @@
 """Config flow for MyQ integration."""
 import logging
 
-import pymyq
-from pymyq.errors import InvalidCredentialsError, MyQError
-import voluptuous as vol
-
 from homeassistant import config_entries, core, exceptions
 from homeassistant.const import CONF_PASSWORD, CONF_USERNAME
 from homeassistant.helpers import aiohttp_client
+import pymyq
+from pymyq.errors import InvalidCredentialsError, MyQError
+import voluptuous as vol
 
 from .const import DOMAIN  # pylint:disable=unused-import
 

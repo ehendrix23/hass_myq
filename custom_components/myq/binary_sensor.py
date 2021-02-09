@@ -1,16 +1,15 @@
 """Support for MyQ gateways."""
+from homeassistant.components.binary_sensor import (
+    DEVICE_CLASS_CONNECTIVITY,
+    BinarySensorEntity,
+)
+from homeassistant.helpers.update_coordinator import CoordinatorEntity
 from pymyq.const import (
     DEVICE_STATE as MYQ_DEVICE_STATE,
     DEVICE_STATE_ONLINE as MYQ_DEVICE_STATE_ONLINE,
     KNOWN_MODELS,
     MANUFACTURER,
 )
-
-from homeassistant.components.binary_sensor import (
-    DEVICE_CLASS_CONNECTIVITY,
-    BinarySensorEntity,
-)
-from homeassistant.helpers.update_coordinator import CoordinatorEntity
 
 from .const import DOMAIN, MYQ_COORDINATOR, MYQ_GATEWAY
 
