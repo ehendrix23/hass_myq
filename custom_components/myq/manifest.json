@@ -1,6 +1,7 @@
 {
   "domain": "myq",
   "name": "MyQ",
+  "version": "0.0.1",
   "documentation": "https://github.com/ehendrix23/hass_myq",
   "issue_tracker": "https://github.com/ehendrix23/hass_myq/issues",
   "dependencies": [],
