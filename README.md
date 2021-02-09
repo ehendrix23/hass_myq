@@ -9,7 +9,7 @@
 [![hacs][hacsbadge]][hacs]
 [![Project Maintenance][maintenance-shield]][user_profile]
 
-[MyQ custom component](https://github.com/ehendrix23/hass_myq) for homeassistant
+Component to add MyQ garage doors and gates to hime assistant
 
 This is a custom component replacing the core MyQ integration in [Homeassistant](https://home-assistant.io).
 
