@@ -1,33 +1,38 @@
 # myQ
 
-[![GitHub Release][releases-shield]][releases]
-[![GitHub Activity][commits-shield]][commits]
-[![License][license-shield]](LICENSE)
+![GitHub all releases](https://img.shields.io/github/downloads/ehendrix23/hass_myq/total)
+![GitHub release (latest by SemVer)](https://img.shields.io/github/downloads/ehendrix23/hass_myq/latest/total)
 
-[![pre-commit][pre-commit-shield]][pre-commit]
-[![Black][black-shield]][black]
+[![GitHub Release][releases-shield]][releases]
+[![License][license-shield]](LICENSE)
 
 [![hacs][hacsbadge]][hacs]
 [![Project Maintenance][maintenance-shield]][user_profile]
-[![BuyMeCoffee][buymecoffeebadge]][buymecoffee]
 
-[![Discord][discord-shield]][discord]
-[![Community Forum][forum-shield]][forum]
+[MyQ custom component](https://github.com/ehendrix23/hass_myq) for homeassistant
 
-**TO BE REMOVED: If you need help, as a developer, to use this custom component tempalte,
-please look at the [User Guide in the Cookiecutter documentation](https://cookiecutter-homeassistant-custom-component.readthedocs.io/en/stable/quickstart.html)**
+This is a custom component replacing the core MyQ integration in [Homeassistant](https://home-assistant.io).
 
 **This component will set up the following platforms.**
 
-| Platform        | Description                                                               |
-| --------------- | ------------------------------------------------------------------------- |
-| `binary_sensor` | Show something `True` or `False`.                                         |
-| `sensor`        | Show info from myQ API. |
-| `switch`        | Switch something `True` or `False`.                                       |
+| Platform        | Description                                                                                         |
+| --------------- | --------------------------------------------------------------------------------------------------- |
+| `binary_sensor` | Represents MyQ gateway.                                                                             |
+| `cover`         | For each garage door or gate discovered from MyQ. Shows current state and allows opening or closing |
 
-![example][exampleimg]
+## Installation with HACS
 
-## Installation
+This component is available through [HACS](https://hacs.xyz/). This is the easiest method to install, stay informed of new releases, and update.
+
+1. Within Home Assistant, open HACS (install HACS if not already installed, see [HACS Installation](https://hacs.xyz/docs/installation/prerequisites))
+2. Go to the store and search for MyQ
+3. Install MyQ through HACS
+4. Go to Configuration -> Integrations page
+5. On the bottom right of the page click on the Orange + sign to add an integration
+6. Search for MyQ (if you don't see it, try refreshing your browser page to reload the cache)
+7. Enter your MyQ account credentials
+
+## Manual Installation
 
 1. Using the tool of choice open the directory (folder) for your HA configuration (where you find `configuration.yaml`).
 2. If you do not have a `custom_components` directory (folder) there, you need to create it.
@@ -38,24 +43,6 @@ please look at the [User Guide in the Cookiecutter documentation](https://cookie
 7. In the HA UI go to "Configuration" -> "Integrations" click "+" and search for "myQ"
 
 Using your HA configuration directory (folder) as a starting point you should now also have this:
-
-```text
-custom_components/myq/translations/en.json
-custom_components/myq/translations/fr.json
-custom_components/myq/translations/nb.json
-custom_components/myq/translations/sensor.en.json
-custom_components/myq/translations/sensor.fr.json
-custom_components/myq/translations/sensor.nb.json
-custom_components/myq/translations/sensor.nb.json
-custom_components/myq/__init__.py
-custom_components/myq/api.py
-custom_components/myq/binary_sensor.py
-custom_components/myq/config_flow.py
-custom_components/myq/const.py
-custom_components/myq/manifest.json
-custom_components/myq/sensor.py
-custom_components/myq/switch.py
-```
 
 ## Configuration is done in the UI
 

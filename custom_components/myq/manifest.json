@@ -1,10 +1,14 @@
 {
   "domain": "myq",
-  "name": "myQ",
+  "name": "MyQ",
+  "version": "0.0.1",
   "documentation": "https://github.com/ehendrix23/hass_myq",
   "issue_tracker": "https://github.com/ehendrix23/hass_myq/issues",
   "dependencies": [],
   "config_flow": true,
   "codeowners": ["@ehendrix23"],
-  "requirements": []
+  "requirements": ["pymyq==3.0.1"],
+  "homekit": {
+    "models": ["819LMB"]
+  }
 }
