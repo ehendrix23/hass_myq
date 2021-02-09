@@ -7,7 +7,7 @@
   "dependencies": [],
   "config_flow": true,
   "codeowners": ["@ehendrix23"],
-  "requirements": ["pymyq==3.0.1"],
+  "requirements": ["pymyq==3.0.2"],
   "homekit": {
     "models": ["819LMB"]
   }
