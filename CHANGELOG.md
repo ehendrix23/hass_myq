@@ -7,6 +7,7 @@
 ### Changes
 
 - Bumped pymyq up from 3.0.1 to 3.0.2
+- Changed minimum HASS release to 2021.2.0 from 2021.3.0
 
 ### Features
 
@@ -15,7 +16,6 @@
 ### Bugfixes
 
 - Fixed repository information shown in HACS
-- Changed minimum HASS release to 2021.2.0 from 2021.3.0
 
 ## v0.0.2 (2021-02-08)
 

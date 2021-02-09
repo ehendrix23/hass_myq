@@ -30,6 +30,12 @@ Garage doors and gates linked to your `MyQ` account will appear as covers.
 
 ### Changes
 
+{% if version_installed.replace("v", "").replace(".","") | int < 003  %}
+
+- Bumped pymyq up from 3.0.1 to 3.0.2
+- Changed minimum HASS release to 2021.2.0 from 2021.3.0
+  {% endif %}
+
 ### Features
 
 {% if version_installed.replace("v", "").replace(".","") | int < 001  %}
@@ -39,14 +45,15 @@ Garage doors and gates linked to your `MyQ` account will appear as covers.
   {% if version_installed.replace("v", "").replace(".","") | int < 002  %}
 - Added change history
   {% endif %}
+  {% if version_installed.replace("v", "").replace(".","") | int < 003  %}
+- Added CHANGELOG.md
+  {% endif %}
 
 ### Bugfixes
 
-{% if version_installed.replace("v", "").replace(".","") | int < 002  %}
+{% if version_installed.replace("v", "").replace(".","") | int < 003  %}
 
 - Fixed repository information shown in HACS
   {% endif %}
 
 ---
-
-{% endif %}
