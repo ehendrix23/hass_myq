@@ -53,3 +53,4 @@ Garage doors and gates linked to your `MyQ` account will appear as covers.
 ---
 
 {% endif %}
+
