@@ -1,5 +1,3 @@
-# myQ
-
 ![GitHub all releases](https://img.shields.io/github/downloads/ehendrix23/hass_myq/total)
 ![GitHub release (latest by SemVer)](https://img.shields.io/github/downloads/ehendrix23/hass_myq/latest/total)
 
@@ -9,16 +7,22 @@
 [![hacs][hacsbadge]][hacs]
 [![Project Maintenance][maintenance-shield]][user_profile]
 
-Component to add MyQ garage doors and gates to hime assistant
+<img align="left" width="80" height="80" src="https://raw.githubusercontent.com/ehendrix23/hass_myq/master/icons/icon.png" alt="App icon">
 
-This is a custom component replacing the core MyQ integration in [Homeassistant](https://home-assistant.io).
+# MyQ
+
+_Component to add [myQ](https://www.myq.com) garage doors and gates to home assistant_
+
+The myQ component lets you control myQ-Enabled garage doors and gates through Home Assistant. Device names in Home Assistant are generated based on the names defined in your myQ Device mobile app.
+
+This is a custom component replacing the core myQ integration in [Homeassistant](https://home-assistant.io).
 
 **This component will set up the following platforms.**
 
 | Platform        | Description                                                                                         |
 | --------------- | --------------------------------------------------------------------------------------------------- |
-| `binary_sensor` | Represents MyQ gateway.                                                                             |
-| `cover`         | For each garage door or gate discovered from MyQ. Shows current state and allows opening or closing |
+| `binary_sensor` | Represents myQ gateway.                                                                             |
+| `cover`         | For each garage door or gate discovered from myQ. Shows current state and allows opening or closing |
 
 ## Installation with HACS
 
@@ -26,11 +30,11 @@ This component is available through [HACS](https://hacs.xyz/). This is the easie
 
 1. Within Home Assistant, open HACS (install HACS if not already installed, see [HACS Installation](https://hacs.xyz/docs/installation/prerequisites))
 2. Go to the store and search for MyQ
-3. Install MyQ through HACS
+3. Install myQ through HACS
 4. Go to Configuration -> Integrations page
 5. On the bottom right of the page click on the Orange + sign to add an integration
-6. Search for MyQ (if you don't see it, try refreshing your browser page to reload the cache)
-7. Enter your MyQ account credentials
+6. Search for myQ (if you don't see it, try refreshing your browser page to reload the cache)
+7. Enter your myQ account credentials
 
 ## Manual Installation
 
