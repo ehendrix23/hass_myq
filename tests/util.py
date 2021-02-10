@@ -1,18 +1,14 @@
 """Tests for the myq integration."""
 import json
 import logging
-import os
 from unittest.mock import patch
 
 from homeassistant.const import CONF_PASSWORD, CONF_USERNAME
 from homeassistant.core import HomeAssistant
 from pymyq.const import ACCOUNTS_ENDPOINT, DEVICES_ENDPOINT
-from pytest_homeassistant_custom_component.common import MockConfigEntry
+from pytest_homeassistant_custom_component.common import MockConfigEntry, load_fixture
 
 from custom_components.myq.const import DOMAIN
-
-# from pytest_homeassistant_custom_component.common import MockConfigEntry, load_fixture
-
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -32,11 +28,7 @@ async def async_init_integration(
     """Set up the myq integration in Home Assistant."""
 
     devices_fixture = "devices.json"
-    with open(
-        os.path.join("tests", "fixtures", devices_fixture), encoding="utf-8"
-    ) as fptr:
-        # devices_json = load_fixture(devices_fixture)
-        devices_json = fptr.read()
+    devices_json = load_fixture(devices_fixture)
     devices_dict = json.loads(devices_json)
 
     def _handle_mock_api_oauth_authenticate():
