@@ -29,12 +29,18 @@ This is a custom component replacing the core myQ integration in [Homeassistant]
 This component is available through [HACS](https://hacs.xyz/). This is the easiest method to install, stay informed of new releases, and update.
 
 1. Within Home Assistant, open HACS (install HACS if not already installed, see [HACS Installation](https://hacs.xyz/docs/installation/prerequisites))
-2. Go to the store and search for MyQ
-3. Install myQ through HACS
-4. Go to Configuration -> Integrations page
-5. On the bottom right of the page click on the Orange + sign to add an integration
-6. Search for myQ (if you don't see it, try refreshing your browser page to reload the cache)
-7. Enter your myQ account credentials
+2. Go to the Integrations store
+3. Click on the 3 vertical dots in upper-right corner and select Custom Repositories
+4. At the bottom of the dialog box, enter https://github.com/ehendrix23/hass_myq for custom repository URL and select Integration as the Category. Click on Add.
+5. Click on the myQ repository and then click on INSTALL THIS REPOSITORY IN HACS
+6. The repository is now installed, a restart of HACS might be required
+
+If myQ was not yet configured in HASS then perform the following steps to add it. If it was already configured as a core component from HASS then nothing further is required.
+
+1. Go to Configuration -> Integrations page
+2. On the bottom right of the page click on the Orange + sign to add an integration
+3. Search for myQ (if you don't see it, try refreshing your browser page to reload the cache)
+4. Enter your myQ account credentials
 
 ## Manual Installation
 
@@ -44,11 +50,31 @@ This component is available through [HACS](https://hacs.xyz/). This is the easie
 4. Download _all_ the files from the `custom_components/myq/` directory (folder) in this repository.
 5. Place the files you downloaded in the new directory (folder) you created.
 6. Restart Home Assistant
-7. In the HA UI go to "Configuration" -> "Integrations" click "+" and search for "myQ"
 
-Using your HA configuration directory (folder) as a starting point you should now also have this:
+If myQ was not yet configured in HASS then perform the following steps to add it. If it was already configured as a core component from HASS then nothing further is required.
+
+1. Go to Configuration -> Integrations page
+2. On the bottom right of the page click on the Orange + sign to add an integration
+3. Search for myQ (if you don't see it, try refreshing your browser page to reload the cache)
+4. Enter your myQ account credentials
 
 ## Configuration is done in the UI
+
+## Removal of HACS
+
+1. Within Home Assistant, open HACS
+2. Go to the Integrations store
+3. Find the myQ card in the list shown.
+4. Click on the 3 vertical dots shown on the card
+5. Click on uninstall to remove the component.
+6. Restart HASS
+
+Uninstall from HACS will result in reverting to the myQ component part of HASS. To remove the configuration completely perform the following steps (note, these can also be done before removing the myQ HACS component)
+
+1. In HASS, click on Configuration -> Integrations
+2. Find the myQ card in the entries shown.
+3. Click on the 3 vertical dots on the myQ card
+4. Click on Delete
 
 <!---->
 
