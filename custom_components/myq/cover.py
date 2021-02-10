@@ -9,7 +9,6 @@ from homeassistant.components.cover import (
     CoverEntity,
 )
 from homeassistant.const import STATE_CLOSED, STATE_CLOSING, STATE_OPEN, STATE_OPENING
-from homeassistant.core import callback
 from homeassistant.helpers.update_coordinator import CoordinatorEntity
 from pymyq.const import (
     DEVICE_STATE as MYQ_DEVICE_STATE,
@@ -159,12 +158,8 @@ class MyQDevice(CoordinatorEntity, CoverEntity):
             device_info["via_device"] = (DOMAIN, self._device.parent_device_id)
         return device_info
 
-    @callback
-    def _async_consume_update(self):
-        self.async_write_ha_state()
-
     async def async_added_to_hass(self):
         """Subscribe to updates."""
         self.async_on_remove(
-            self.coordinator.async_add_listener(self._async_consume_update)
+            self.coordinator.async_add_listener(self.async_write_ha_state)
         )
