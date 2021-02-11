@@ -1,5 +1,5 @@
 {
-  "count": 4,
+  "count": 6,
   "href": "http://api.myqdevice.com/api/v5/accounts/account_id/devices",
   "items": [
     {
@@ -127,6 +127,50 @@
       "parent_device": "http://api.myqdevice.com/api/v5/accounts/account_id/devices/gateway_serial",
       "href": "http://api.myqdevice.com/api/v5/accounts/account_id/devices/small_garage_serial",
       "device_type": "wifigaragedooropener",
+      "created_date": "2020-02-10T23:11:47.487"
+    },
+    {
+      "serial_number": "large_light_serial",
+      "state": {
+        "last_status": "2020-03-30T02:48:45.7501595Z",
+        "online": true,
+        "off": "http://api.myqdevice.com/api/v5/accounts/account_id/devices/light_serial/off",
+        "invalid_credential_window": "00:00:00",
+        "lamp_state": "off",
+        "last_update": "2020-03-26T15:45:31.4713796Z",
+        "command_channel_report_status": false,
+        "on": "http://api.myqdevice.com/api/v5/accounts/account_id/devices/light_serial/on",
+        "max_invalid_attempts": 0
+      },
+      "parent_device_id": "gateway_serial",
+      "device_platform": "myq",
+      "name": "Large Garage Light",
+      "device_family": "lamp",
+      "parent_device": "http://api.myqdevice.com/api/v5/accounts/account_id/devices/gateway_serial",
+      "href": "http://api.myqdevice.com/api/v5/accounts/account_id/devices/small_garage_serial",
+      "device_type": "lamp",
+      "created_date": "2020-02-10T23:11:47.487"
+    },
+    {
+      "serial_number": "small_light_serial",
+      "state": {
+        "last_status": "2020-03-30T02:48:45.7501595Z",
+        "online": true,
+        "off": "http://api.myqdevice.com/api/v5/accounts/account_id/devices/light_serial/off",
+        "invalid_credential_window": "00:00:00",
+        "lamp_state": "off",
+        "last_update": "2020-03-26T15:45:31.4713796Z",
+        "command_channel_report_status": false,
+        "on": "http://api.myqdevice.com/api/v5/accounts/account_id/devices/light_serial/on",
+        "max_invalid_attempts": 0
+      },
+      "parent_device_id": "gateway_serial",
+      "device_platform": "myq",
+      "name": "Small Garage Light",
+      "device_family": "lamp",
+      "parent_device": "http://api.myqdevice.com/api/v5/accounts/account_id/devices/gateway_serial",
+      "href": "http://api.myqdevice.com/api/v5/accounts/account_id/devices/small_garage_serial",
+      "device_type": "lamp",
       "created_date": "2020-02-10T23:11:47.487"
     }
   ]
