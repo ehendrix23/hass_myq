@@ -3,4 +3,4 @@ black==20.8b1
 flake8==3.8.4
 homeassistant
 isort==5.7.0
-pymyq
+git+https://github.com/arraylabs/pymyq@v3.1.0b1#pymyq==3.1.0b1
