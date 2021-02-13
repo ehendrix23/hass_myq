@@ -8,7 +8,7 @@
   "config_flow": true,
   "codeowners": ["@ehendrix23"],
   "requirements": [
-    "git+https://github.com/arraylabs/pymyq@v3.1.0b1#pymyq==3.1.0b1",
+    "git+https://github.com/arraylabs/pymyq@v3.1.0b2#pymyq==3.1.0b2",
     "aiohttp==3.7",
     "beautifulsoup4==4.9.3",
     "pkce==1.0.2"
