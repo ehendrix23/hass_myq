@@ -95,7 +95,7 @@ class MyQDevice(CoordinatorEntity, LightEntity):
             return
 
         try:
-            await self._device.turnon(wait_for_state=True)
+            await self._device.turnoff(wait_for_state=True)
         except MyQError as err:
             _LOGGER.error(
                 "Turning light %s off failed with error: %s",
