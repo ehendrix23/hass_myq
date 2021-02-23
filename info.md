@@ -57,6 +57,10 @@ Garage doors and gates linked to your `MyQ` account will appear as covers.
 
 - Fixed repository information shown in HACS
   {% endif %}
+  {% if version_installed.replace("v", "").replace(".","") | int < 004  %}
+
+- Bump pymy to 3.0.4 to fix authentication issue by re-introducting User-Agent header
+  {% endif %}
 
 ---
 
