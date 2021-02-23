@@ -1,13 +1,18 @@
 {
   "domain": "myq",
   "name": "MyQ",
-  "version": "0.0.4",
+  "version": "1.0.0b5",
   "documentation": "https://github.com/ehendrix23/hass_myq",
   "issue_tracker": "https://github.com/ehendrix23/hass_myq/issues",
   "dependencies": [],
   "config_flow": true,
   "codeowners": ["@ehendrix23"],
-  "requirements": ["pymyq==3.0.4"],
+  "requirements": [
+    "git+https://github.com/arraylabs/pymyq@v3.1.0b4#pymyq==3.1.0b4",
+    "aiohttp==3.7",
+    "beautifulsoup4==4.9.3",
+    "pkce==1.0.2"
+  ],
   "homekit": {
     "models": ["819LMB"]
   }
