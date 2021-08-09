@@ -24,11 +24,20 @@ Your `MyQ` gateway will appear as a binary sensor that shows if the device is co
 
 Garage doors and gates linked to your `MyQ` account will appear as covers.
 
+### Lamp
+
+Lamps/Lights linked to your `MyQ` account will appear as lights.
+
 {% if installed and version_installed != selected_tag %}
 
 ## Changes as compared to your installed version:
 
 ### Breaking Changes
+
+{% if version_installed.replace("v", "").replace(".","") | int < 100  %}
+
+- Configuration for the integration is now done through the HASS UI instead of YAML files.
+  {% endif %}
 
 ### Changes
 
@@ -57,9 +66,14 @@ Garage doors and gates linked to your `MyQ` account will appear as covers.
 
 - Fixed repository information shown in HACS
   {% endif %}
+
   {% if version_installed.replace("v", "").replace(".","") | int < 004  %}
 
-- Bump pymy to 3.0.4 to fix authentication issue by re-introducting User-Agent header
+- Bump pymyq to 3.0.4 to fix authentication issue by re-introducting User-Agent header
+  {% endif %}
+  {% if version_installed.replace("v", "").replace(".","") | int < 100  %}
+
+- Bump pymyq to 3.1.0 to fix unknown device warnings
   {% endif %}
 
 ---
