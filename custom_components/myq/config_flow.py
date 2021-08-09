@@ -33,7 +33,8 @@ class ConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
             await pymyq.login(username, password, websession)
         except InvalidCredentialsError:
             return {CONF_PASSWORD: "invalid_auth"}
-        except MyQError:
+        except MyQError as err:
+            _LOGGER.error("Failed to authenticate: %s", str(err))
             return {"base": "cannot_connect"}
         except Exception:  # pylint: disable=broad-except
             _LOGGER.exception("Unexpected exception")
