@@ -7,12 +7,7 @@
   "dependencies": [],
   "config_flow": true,
   "codeowners": ["@ehendrix23"],
-  "requirements": [
-    "git+https://github.com/arraylabs/pymyq@v3.1.0#pymyq==3.1.0",
-    "aiohttp==3.7",
-    "beautifulsoup4==4.9.3",
-    "pkce==1.0.2"
-  ],
+  "requirements": ["pymyq==3.1.0"],  
   "homekit": {
     "models": ["819LMB", "MYQ"]
   },
