@@ -1,19 +1,21 @@
 {
   "domain": "myq",
   "name": "MyQ",
-  "version": "1.0.0b7",
+  "version": "1.0.0",
   "documentation": "https://github.com/ehendrix23/hass_myq",
   "issue_tracker": "https://github.com/ehendrix23/hass_myq/issues",
   "dependencies": [],
   "config_flow": true,
   "codeowners": ["@ehendrix23"],
   "requirements": [
-    "git+https://github.com/arraylabs/pymyq@v3.1.0b6#pymyq==3.1.0b6",
+    "git+https://github.com/arraylabs/pymyq@v3.1.0#pymyq==3.1.0",
     "aiohttp==3.7",
     "beautifulsoup4==4.9.3",
     "pkce==1.0.2"
   ],
   "homekit": {
-    "models": ["819LMB"]
-  }
+    "models": ["819LMB", "MYQ"]
+  },
+  "iot_class": "cloud_polling",
+  "dhcp": [{ "macaddress": "645299*" }]
 }
