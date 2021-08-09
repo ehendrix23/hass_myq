@@ -15,12 +15,9 @@ from pymyq.garagedoor import (
 )
 from pymyq.lamp import STATE_OFF as MYQ_LIGHT_STATE_OFF, STATE_ON as MYQ_LIGHT_STATE_ON
 
-__version__ = "0.1.0"
-PROJECT_URL = "https://github.com/ehendrix23/hass_myq"
-ISSUE_URL = "{}issues".format(PROJECT_URL)
-
 DOMAIN = "myq"
-PLATFORMS = ["binary_sensor", "cover", "light"]
+
+PLATFORMS = ["cover", "binary_sensor", "light"]
 
 MYQ_TO_HASS = {
     MYQ_COVER_STATE_CLOSED: STATE_CLOSED,
@@ -35,5 +32,13 @@ MYQ_GATEWAY = "myq_gateway"
 MYQ_COORDINATOR = "coordinator"
 
 # myq has some ratelimits in place
-# and 15 seemed to be work every time
+# and 61 seemed to be work every time
 UPDATE_INTERVAL = 15
+
+# Estimated time it takes myq to start transition from one
+# state to the next.
+TRANSITION_START_DURATION = 7
+
+# Estimated time it takes myq to complete a transition
+# from one state to another
+TRANSITION_COMPLETE_DURATION = 37
